@@ -1,0 +1,92 @@
+import java.util.Scanner;
+
+
+public class MainMenu {
+
+
+    private enum enWhatToDO {ShowFlights , SearchForaFlight , MyBooks , BookNewFlight , DeleteFlight}
+
+    private static Scanner input = new Scanner(System.in);
+
+
+    private static void GenrateMainMenu(enWhatToDO WhatToDO)
+    {
+
+        switch(WhatToDO)
+        {
+          case ShowFlights:
+          clsImportantClass.ClearScreen();
+          System.out.println("Screen Will Be Here Nearly \n");
+          System.out.println("Press Any Key To Go Back To Main Menu...");
+          input.nextLine();
+          input.nextLine();
+          MainMenu();
+          break;
+
+          case SearchForaFlight:
+          clsImportantClass.ClearScreen();
+          System.out.println("Screen Will Be Here Nearly \n");
+          System.out.println("Press Any Key To Go Back To Main Menu...");
+          input.nextLine();
+          input.nextLine();
+          MainMenu();
+          break;
+
+          case MyBooks:
+          clsImportantClass.ClearScreen();
+          System.out.println("Screen Will Be Here Nearly \n");
+          System.out.println("Press Any Key To Go Back To Main Menu...");
+          input.nextLine();
+          input.nextLine();
+          MainMenu();
+          break;
+
+          case BookNewFlight:
+          clsImportantClass.ClearScreen();
+          System.out.println("Screen Will Be Here Nearly \n");
+          System.out.println("Press Any Key To Go Back To Main Menu...");
+          input.nextLine();
+          input.nextLine();
+          MainMenu();
+          break;
+
+          case DeleteFlight:
+          clsImportantClass.ClearScreen();
+          System.out.println("Screen Will Be Here Nearly \n");
+          System.out.println("Press Any Key To Go Back To Main Menu...");
+          input.nextLine();
+          input.nextLine();
+          MainMenu();
+          break;
+
+          default:
+
+        }
+    }
+
+
+    public static void MainMenu()
+    {
+        System.out.println(clsImportantClass.Taps(35) + "===========================================");
+        System.out.println(clsImportantClass.Taps(35) + "                Main Menu                  ");
+        System.out.println(clsImportantClass.Taps(35) + "===========================================");
+        System.out.println(clsImportantClass.Taps(35) + "  Show Avelable Flights   [1]");
+        System.out.println(clsImportantClass.Taps(35) + "  Search For a Flight     [2]");
+        System.out.println(clsImportantClass.Taps(35) + "  My Booked Tickets       [3]");
+        System.out.println(clsImportantClass.Taps(35) + "                          [4]");
+        System.out.println(clsImportantClass.Taps(35) + "  Book New Flight Ticket  [5]");
+        System.out.println(clsImportantClass.Taps(35) + "  Delete Flight Ticket    [6]");
+
+        System.out.println(clsImportantClass.Taps(35) + "  ");
+
+
+
+        
+            System.out.print("Enter What Do You Want To Do [1 --> 6] : ");
+            int ToDo = input.nextInt();
+
+            GenrateMainMenu(enWhatToDO.values()[ToDo - 1]);
+        
+    }
+
+}
