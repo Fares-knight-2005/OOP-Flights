@@ -1,4 +1,9 @@
+import java.util.Scanner;
+
 public class clsImportantClass {
+
+
+    private static Scanner input = new Scanner(System.in);
 
     public static String Taps(int HowManyTaps)
     {
@@ -19,4 +24,64 @@ public class clsImportantClass {
             System.out.println();
         }
     }
+
+    public static int ReadIntNumberBetwin(int smallerNum , int BigerNum)
+    {
+        int num = input.nextInt();
+
+        if(num < smallerNum || num > BigerNum)
+        {
+             System.out.println("Number Not Within Range  :(");
+             System.out.print("Enter Number : ");
+             num = input.nextInt();
+        }
+
+        return num;
+
+    }
+
+    public static int ReadIntNumberBetwin(int smallerNum , int BigerNum , String ErorMessge)
+    {
+        int num = input.nextInt();
+
+        if(num < smallerNum || num > BigerNum)
+        {
+             System.out.println(ErorMessge);
+             System.out.print("Enter Number : ");
+             num = input.nextInt();
+        }
+
+        return num;
+
+    }
+    
+    public static int ReadIntNumberBetwin(int smallerNum , int BigerNum , String ErorMessge , String Taps)
+    {
+        int num = input.nextInt();
+
+        if(num < smallerNum || num > BigerNum)
+        {
+             System.out.println(Taps + ErorMessge);
+             System.out.print(Taps + "Enter Number : ");
+             num = input.nextInt();
+        }
+
+        return num;
+
+    }
+
+    public static int ReadIntNumber()
+    {
+        return input.nextInt();
+    }
+
+    
+
+
+
+
+
+
+
+
 }
