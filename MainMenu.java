@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class MainMenu extends clsScreeen{
 
 
-    private enum enWhatToDO {ShowFlights , SearchForaFlight , MyBooks , BookNewFlight , DeleteFlight}
+    private enum enWhatToDO {ShowFlights , SearchForaFlight , MyBooks , BookNewFlight , DeleteFlight , LogOut}
 
     private static Scanner input = new Scanner(System.in);
 
@@ -34,8 +34,8 @@ public class MainMenu extends clsScreeen{
 
           case MyBooks:
           clsImportantClass.ClearScreen();
-          clsAddNewFlight.AddNewFlight();
-         // System.out.println("Screen Will Be Here Nearly \n");
+        //  clsAddNewFlight.AddNewFlight();
+          System.out.println("Screen Will Be Here Nearly \n");
           System.out.println("Press Any Key To Go Back To Main Menu...");
           input.nextLine();
           input.nextLine();
@@ -58,6 +58,10 @@ public class MainMenu extends clsScreeen{
           input.nextLine();
           input.nextLine();
           MainMenu();
+          break;
+
+
+          case LogOut:
           break;
 
           default:
@@ -83,11 +87,12 @@ public class MainMenu extends clsScreeen{
         System.out.println( "  My Booked Tickets       [3]");
         System.out.println( "  Book New Flight Ticket  [4]");
         System.out.println( "  Delete Flight Ticket    [5]");
+        System.out.println( "  Log Out                 [6]");
         System.out.println( "===========================================");
 
         System.out.println();
         
-            System.out.print("Enter What Do You Want To Do [1 --> 5] : ");
+            System.out.print("Enter What Do You Want To Do [1 --> 6] : ");
             int ToDo = input.nextInt();
 
             GenrateMainMenu(enWhatToDO.values()[ToDo - 1]);
