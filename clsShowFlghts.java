@@ -1,14 +1,56 @@
 import java.util.jar.Attributes.Name;
+import java.nio.channels.FileLock;
+import java.util.ArrayList;
 
-public class clsShowFlghts {
+public class clsShowFlghts extends clsScreeen{
 
 
-
+    private static void printOneFlight(clsFlight Flight)
+    {
+        System.out.printf("| %s       | %s       | %s       |   %s   |   %s   |    %d      |      %d        |    %s    |       %s      | %s                |\n" , Flight.GetNumberOfFlight() , Flight.GetFromCountry() , Flight.GetToCountry() , 
+        Flight.GetDateToTravel() , Flight.GetDateToGoBack() , Flight.GetNumberOfChars() , Flight.GetNumberOfPassengers() , Flight.GetStringTimeOfGo() , Flight.GetTimeOfArriving() , Flight.GetHowMuchTimeInTheSky());
+    }
 
 
 
     public static void ShowFlightScreen()
     {
+        
+        NewScreen("\t          Show Flights Screen" , 55);
+
+        ArrayList <clsFlight> AllFlights = clsFlight.GetAllFlights();
+
+
+
+        System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+        System.out.println("|                                                              Flights Informations                                                                        |");
+        System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+        System.out.println("| Flight Num | From Country | To Country | Travel Date  |  Go Back Date  | Chears Num | Passegers Num | Going Time | Arraiving Time | Stay in The Sky hours|");
+        System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+
+        if(AllFlights.isEmpty())
+        {
+            
+          System.out.println("                                                                  No Flights Exest");
+          System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+
+          return;
+        }
+
+        for(clsFlight Flight : AllFlights)
+        {
+            printOneFlight(Flight);
+        }
+
+
+
+        System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+
+        System.out.println();
+
+
+
+       /* 
 
         
         // هاد هو الأوبجكن الي بدنا نخزن منو بلفايل 
@@ -69,6 +111,10 @@ public class clsShowFlghts {
         Student st2 = new Student(Arr[0], Integer.parseInt(Arr[1]), Arr[2]);
 
 
-        
+        */
+
+
+
+
     }
 }

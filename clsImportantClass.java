@@ -72,8 +72,17 @@ public class clsImportantClass {
 
     public static int ReadIntNumber()
     {
-        return input.nextInt();
+       int num = input.nextInt();
+       input.nextLine();
+       return num;
     }
+ 
+ 
+    public static String ReadString()
+    {
+       return input.nextLine();
+    }
+   
 
 
 }

@@ -7,7 +7,16 @@ public class App {
     public static void main(String[] args) throws Exception {
         
 
-        MainMenu.MainMenu();
+      // MainMenu.MainMenu();
+
+
+      clsLoginScreen.LogIn();
+       
+
+    /*   clsFlight Flight = new clsFlight(50, 20, 
+      "A101", "2025/2/1", "2025/2/10", 800, 
+      "Syria", "Germany", "4:30", "5:30", "1:00");
+      clsFlight.AddFlight(Flight);*/
 
 /* 
          try{

@@ -34,7 +34,8 @@ public class MainMenu extends clsScreeen{
 
           case MyBooks:
           clsImportantClass.ClearScreen();
-          System.out.println("Screen Will Be Here Nearly \n");
+          clsAddNewFlight.AddNewFlight();
+         // System.out.println("Screen Will Be Here Nearly \n");
           System.out.println("Press Any Key To Go Back To Main Menu...");
           input.nextLine();
           input.nextLine();
@@ -72,22 +73,19 @@ public class MainMenu extends clsScreeen{
         clsImportantClass.ClearScreen();
 
 
-        NewScreen("\t    The Main Menu For Pasenngers", 87);
+        NewScreen("\t    The Main Menu For Pasenngers", 55);
 
-        System.out.println(clsImportantClass.Taps(85) + "===========================================");
-        System.out.println(clsImportantClass.Taps(85) + "                Main Menu                  ");
-        System.out.println(clsImportantClass.Taps(85) + "===========================================");
-        System.out.println(clsImportantClass.Taps(85) + "  Show Avelable Flights   [1]");
-        System.out.println(clsImportantClass.Taps(85) + "  Search For a Flight     [2]");
-        System.out.println(clsImportantClass.Taps(85) + "  My Booked Tickets       [3]");
-        System.out.println(clsImportantClass.Taps(85) + "  Book New Flight Ticket  [4]");
-        System.out.println(clsImportantClass.Taps(85) + "  Delete Flight Ticket    [5]");
-        System.out.println(clsImportantClass.Taps(85) + "===========================================");
+        System.out.println( "===========================================");
+        System.out.println( "                Main Menu                  ");
+        System.out.println( "===========================================");
+        System.out.println( "  Show Avelable Flights   [1]");
+        System.out.println( "  Search For a Flight     [2]");
+        System.out.println( "  My Booked Tickets       [3]");
+        System.out.println( "  Book New Flight Ticket  [4]");
+        System.out.println( "  Delete Flight Ticket    [5]");
+        System.out.println( "===========================================");
 
-        System.out.println(clsImportantClass.Taps(85));
-
-
-
+        System.out.println();
         
             System.out.print("Enter What Do You Want To Do [1 --> 5] : ");
             int ToDo = input.nextInt();

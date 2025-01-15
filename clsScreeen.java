@@ -1,7 +1,7 @@
 public class clsScreeen {
 
 
-    public static void NewScreen(String Texe , int NumberOfTaps)
+    protected static void NewScreen(String Texe , int NumberOfTaps)
     {
         System.out.println();
         System.out.println();
