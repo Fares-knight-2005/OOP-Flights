@@ -2,16 +2,22 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
-
+     // ArrayList <String> l;
+   //   l.
       // MainMenu.MainMenu();
 
 
+    //  LocalTime CurrentTime = LocalTime.now();
+
+      //System.out.println(CurrentTime);
+
       clsLoginScreen.LogIn();
-       
 
     /*   clsFlight Flight = new clsFlight(50, 20, 
       "A101", "2025/2/1", "2025/2/10", 800, 

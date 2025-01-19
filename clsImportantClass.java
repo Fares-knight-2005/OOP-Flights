@@ -75,6 +75,7 @@ public class clsImportantClass {
        int num = input.nextInt();
        input.nextLine();
        return num;
+       
     }
  
  
