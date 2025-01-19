@@ -1,8 +1,8 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
 
 public class clsFlight {
@@ -183,7 +183,7 @@ public class clsFlight {
     }
 
     public static  ArrayList <clsFlight> GetAllFlights()
-    {
+{                           
 
          ArrayList <clsFlight> AllFlights = new ArrayList<>();
         try{
@@ -206,6 +206,19 @@ public class clsFlight {
             e.fillInStackTrace();
             return AllFlights;
         }
+        
+    }
+
+    public static  ArrayList <clsFlight> ArrayHaveAllFlightsCountry(String Countryto){
+        ArrayList <clsFlight> arrayListWithcountry =new ArrayList();
+      
+        for (clsFlight e : GetAllFlights() ) {
+            if(e.ToCountry.equals(Countryto)){
+            arrayListWithcountry.add(e);}
+        }
+return arrayListWithcountry;
+
+
     }
 
 

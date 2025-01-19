@@ -1,11 +1,9 @@
-import java.util.jar.Attributes.Name;
-import java.nio.channels.FileLock;
 import java.util.ArrayList;
 
 public class clsShowFlghts extends clsScreeen{
 
 
-    private static void printOneFlight(clsFlight Flight)
+    public static void printOneFlight(clsFlight Flight)
     {
         System.out.printf("| %s       | %s       | %s       |   %s   |   %s   |    %d      |      %d        |    %s    |       %s      | %s                |\n" , Flight.GetNumberOfFlight() , Flight.GetFromCountry() , Flight.GetToCountry() , 
         Flight.GetDateToTravel() , Flight.GetDateToGoBack() , Flight.GetNumberOfChars() , Flight.GetNumberOfPassengers() , Flight.GetStringTimeOfGo() , Flight.GetTimeOfArriving() , Flight.GetHowMuchTimeInTheSky());

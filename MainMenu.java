@@ -25,7 +25,8 @@ public class MainMenu extends clsScreeen{
 
           case SearchForaFlight:
           clsImportantClass.ClearScreen();
-          System.out.println("Screen Will Be Here Nearly \n");
+          clsSearchForaFlight.SearchForaFlight();
+         // System.out.println("Screen Will Be Here Nearly \n");
           System.out.println("Press Any Key To Go Back To Main Menu...");
           input.nextLine();
           input.nextLine();
