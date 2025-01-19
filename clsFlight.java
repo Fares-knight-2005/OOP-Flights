@@ -209,6 +209,47 @@ public class clsFlight {
         
     }
 
+
+    public static clsFlight Find(String NumberOfFlight)
+    {
+       ArrayList <clsFlight> AllFlights = GetAllFlights();
+
+       for(clsFlight Flight : AllFlights)
+       {
+        if(Flight.NumberOfFlight.equals(NumberOfFlight))
+         return Flight;
+       }
+
+       return GetEmptyObject();
+    }
+
+    
+    public static void Save(ArrayList <clsFlight> AllFlights)
+    {
+        try{
+
+            
+        BufferedWriter Writer = new BufferedWriter(new FileWriter("Flights.txt"));
+
+
+        String Line;
+        for(clsFlight Flight : AllFlights)
+        {
+            Line = ConvertObjectToLine(Flight);
+            Writer.write(Line);
+        }
+
+        }
+        catch(Exception e)
+        {
+            e.fillInStackTrace();
+        }
+
+    }
+
+
+
+    
     public static  ArrayList <clsFlight> ArrayHaveAllFlightsCountry(String Countryto){
         ArrayList <clsFlight> arrayListWithcountry =new ArrayList();
       
