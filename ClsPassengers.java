@@ -6,7 +6,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 
 public class ClsPassengers {
@@ -18,31 +18,7 @@ public class ClsPassengers {
  String [] arr ;
 
   
-  Scanner in =new Scanner (System.in);
-  //هاد التابع مشان يتاكد انو اليوزر نيم يكون مميز لكل شخص رح يسجل
-  public String checkname(String name){
-  
-   try{    
-   BufferedReader read = new BufferedReader (new FileReader("user.txt"));
-   String line =read.readLine();
-   while((line =read.readLine())!= null) {
-   
-           String [] sarr =line.split("#//#") ;
-    if(name.equals(sarr[0])){
-        System.out.print("this user name is already use you most try antoer user name");
-       name =in.nextLine();
-        checkname(name);
-    }
-   
-   }
-   
-   
-   }catch(Exception e){
-   e.fillInStackTrace();
-   }
-  
-  return name;
-  }
+ 
 
   //هاد باني فارغ يعني بيعطي قيم صفر لل انتجر و فراغ لل سترينغ
   public ClsPassengers(){
@@ -54,34 +30,19 @@ public class ClsPassengers {
    PassengerCash=0;
   }
   
-   //هاد هو الباني عملت الو اكثر من وضيفة 
-  //هو رح ياخد القيم ويخزن القيم داخل ملف بعد تحويلهن الى متحولات من نوع سترينغ
+    //هاد هو الكونستركتر العادي الطلب رقم2  
+
   
-  ClsPassengers(String PassengerUserName,String PassengerName ,int PassengeAge
-                 ,int PassengeCash, String pasword){
+ public ClsPassengers(String PassengerUserName,String PassengerName ,
+           int PassengerAge,int PassengerCash,String pasword){
+          
+       this.PassengerUserName= PassengerUserName;
+       this.PassengerName= PassengerName;
+       this.PassengerAge=PassengerAge;
+       this.PassengerCash=PassengerCash;
+       this.pasword=pasword;
+   }
   
-  
-  PassengerUserName=checkname(PassengerUserName);
-  
-  this.PassengerUserName=PassengerUserName ;
-  this.PassengerName=PassengerName;
-  this.PassengerAge=PassengeAge ;
-  this.PassengerCash=PassengeCash;
-  this.pasword=pasword;
-  
-  String [ ]arr={Integer.toString(PassengerCash),Integer.toString(PassengerAge)};
- 
- try{
- BufferedWriter write = new BufferedWriter (new FileWriter ("user.txt",true));
- 
- write.write(PassengerUserName+"#//#"+PassengerName+"#//#"+PassengerAge+"#//#"+PassengerCash+"#//#"+pasword+"\n");
- 
- write.close();
- }catch(Exception e){
- e.fillInStackTrace();
- }
-  }
- 
   
   
   //هون الستير و الجيتر مافيهن شي مميز 
@@ -189,5 +150,29 @@ public static ArrayList<ClsPassengers> GetAllPassenger(){
     return allpassnger;
 }
 
+public static ClsPassengers CheckByUserNameAndPasword(String userName,String pasword){
+  
+    ArrayList<ClsPassengers> passengers=new ArrayList();
+    passengers.addAll(GetAllPassenger());
+    boolean find =false;
+    ClsPassengers p1 =new ClsPassengers();
+    for(int i=0;i<passengers.size();i++){
+    if(passengers.get(i).PassengerUserName.equals(userName)){
+       
+        if(passengers.get(i).pasword.equals(pasword)){
+           
+            find = true;
+            p1=passengers.get(i);
+            
+            
+        }
+    
+    }
+    
+    }
+    if (find==false)
+    { p1.GetEmptyobject();}
+    return p1;
+}
 }
 
