@@ -18,8 +18,8 @@ public class ClsPassengers {
  String [] arr ;
 
   
- 
 
+ 
   //هاد باني فارغ يعني بيعطي قيم صفر لل انتجر و فراغ لل سترينغ
   public ClsPassengers(){
   
@@ -30,10 +30,8 @@ public class ClsPassengers {
    PassengerCash=0;
   }
   
-    //هاد هو الكونستركتر العادي الطلب رقم2  
-
-  
- public ClsPassengers(String PassengerUserName,String PassengerName ,
+  //هاد هو الكونستركتر العادي الطلب رقم2  
+   public ClsPassengers(String PassengerUserName,String PassengerName ,
            int PassengerAge,int PassengerCash,String pasword){
           
        this.PassengerUserName= PassengerUserName;
@@ -43,36 +41,45 @@ public class ClsPassengers {
        this.pasword=pasword;
    }
   
+
   
   
   //هون الستير و الجيتر مافيهن شي مميز 
 public void SetPassengerUserName(String passengeruserName){
 this.PassengerUserName=passengeruserName;
 }
+
 public void SetPassengerName(String passengerName){
 this.PassengerName=passengerName;
 }
+
 public void SetPassengerAge(int age){
 this.PassengerAge=age;
 }
+
 public void SetPassengerCash(int cach){
 this.PassengerCash=cach;
 }
+
 public void Setpasword(String pasword){
 this.pasword=pasword;
 }
 public String  GetPassengerUserName(){
     return PassengerUserName;
 }
+
 public String GetpassengerName(){
 return PassengerName;
 }
+
 public int GetpassengerAge(){
 return PassengerAge ;
 }
+
 public int Getpassengercach (){
  return   PassengerCash;
 }
+
 public String Getpasword (){
 return pasword ;
 }
