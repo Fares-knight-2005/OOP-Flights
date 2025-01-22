@@ -78,7 +78,7 @@ while (true) {
         num=Integer.parseInt(input.nextLine());
         break;
     } catch (NumberFormatException  e) {
-        System.out.println("Wrong input please Enter Interger");
+        System.out.println("Wrong input please Enter Integer");
     }
     
 }
