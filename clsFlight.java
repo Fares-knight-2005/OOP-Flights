@@ -257,10 +257,9 @@ public class clsFlight {
             if(e.ToCountry.equals(Countryto)){
             arrayListWithcountry.add(e);}
         }
-return arrayListWithcountry;
-
-
+        return arrayListWithcountry;
     }
 
+  
 
 }
