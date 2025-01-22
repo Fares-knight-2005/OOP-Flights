@@ -1,4 +1,4 @@
-package passenger;
+
 
 
 import java.io.BufferedReader;
@@ -15,7 +15,6 @@ public class ClsPassengers {
  private int PassengerAge;
  private int PassengerCash ;
  private String pasword ;
- String [] arr ;
 
   
 
@@ -109,7 +108,7 @@ try{
 }
 
 public static ClsPassengers GetEmptyobject (){
-ClsPassengers passenger = new passenger.ClsPassengers();
+ClsPassengers passenger = new ClsPassengers();
 return passenger ;
 }
 
@@ -159,8 +158,8 @@ public static ArrayList<ClsPassengers> GetAllPassenger(){
 
 public static ClsPassengers CheckByUserNameAndPasword(String userName,String pasword){
   
-    ArrayList<ClsPassengers> passengers=new ArrayList();
-    passengers.addAll(GetAllPassenger());
+    ArrayList<ClsPassengers> passengers= new ArrayList();
+    passengers = GetAllPassenger();
     boolean find =false;
     ClsPassengers p1 =new ClsPassengers();
     for(int i=0;i<passengers.size();i++){
@@ -170,16 +169,42 @@ public static ClsPassengers CheckByUserNameAndPasword(String userName,String pas
            
             find = true;
             p1=passengers.get(i);
-            
-            
         }
     
     }
     
     }
     if (find==false)
-    { p1.GetEmptyobject();}
+    { p1 =GetEmptyobject();}
     return p1;
 }
+
+
+public void AddTicket(clsFlight Flifght)
+{
+    ClsTickets.AddNew(Flifght, PassengerUserName);
+}
+
+public void DeleteTicket(String FlightNumber)
+{
+   ClsTickets Ticket =  ClsTickets.Find(PassengerUserName , clsFlight.Find(FlightNumber));
+   Ticket.Delete();
+}
+
+public ArrayList <ClsTickets> GetTickets()
+{
+    ArrayList <ClsTickets> AllTickets = ClsTickets.GetAllTickets();
+
+    ArrayList <ClsTickets> PassengerTickets = new ArrayList<>();
+
+    for(ClsTickets Ticket : AllTickets)
+    {
+        if(Ticket.GetUserName().equals(PassengerUserName))
+           PassengerTickets.add(Ticket);
+    }
+
+    return PassengerTickets;
+}
+
 }
 

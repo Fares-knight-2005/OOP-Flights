@@ -1,10 +1,10 @@
-import passenger.ClsPassengers;
+
 
 import java.util.Scanner;
-public class clsCreatNewAccount extends clsScreeen {
+public class clsCreatNewAccount extends  clsScreeen {
     private static Scanner s = new Scanner(System.in);
 
-    public static ClsPassengers AddNew() {
+    private static ClsPassengers AddNew() {
 
         ClsPassengers obj = ClsPassengers.GetEmptyobject();
         System.out.print("Enter the user name : ");
@@ -25,12 +25,12 @@ public class clsCreatNewAccount extends clsScreeen {
         System.out.print("Enter your Age : ");
         System.out.println();
 
-        int age = s.nextInt();
+        int age = clsImportantClass.ReadIntNumber();
         obj.SetPassengerAge(age);
         System.out.println();
 
         System.out.print("Enter your cash : ");
-        int cash = s.nextInt();
+        int cash = clsImportantClass.ReadIntNumber();
         obj.SetPassengerCash(cash);
         System.out.println();
 

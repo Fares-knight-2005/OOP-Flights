@@ -9,7 +9,7 @@ public class clsAddNewFlight extends clsScreeen{
         clsFlight Flight = clsFlight.GetEmptyObject();
 
       
-        System.out.print("Enter The Number Of The Flight : ");
+        System.out.print("Enter The Number Of The Flight of Type [A100] : ");
         Flight.setNumberOfFlight(clsImportantClass.ReadString());
         System.out.println();
 
@@ -38,7 +38,7 @@ public class clsAddNewFlight extends clsScreeen{
         Flight.setToCountry(clsImportantClass.ReadString());
         System.out.println();
 
-        System.out.print("Enter The Time Of Go Out [hh : mm] : ");
+        System.out.print("Enter The Time Of Moving [hh : mm] : ");
         Flight.setStringtimeOfGo(clsImportantClass.ReadString());
         System.out.println();
 
