@@ -1,10 +1,10 @@
-import passenger.ClsPassengers;
+
 
 import java.util.Scanner;
-public class clsCreatNewAccount extends clsScreeen {
+public class clsCreatNewAccount extends  clsScreeen {
     private static Scanner s = new Scanner(System.in);
 
-    public static ClsPassengers AddNew() {
+    private static ClsPassengers AddNew() {
 
         ClsPassengers obj = ClsPassengers.GetEmptyobject();
         System.out.print("Enter the user name : ");
