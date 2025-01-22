@@ -178,5 +178,33 @@ public static ClsPassengers CheckByUserNameAndPasword(String userName,String pas
     { p1 =GetEmptyobject();}
     return p1;
 }
+
+
+public void AddTicket(clsFlight Flifght)
+{
+    ClsTickets.AddNew(Flifght, PassengerUserName);
+}
+
+public void DeleteTicket(String FlightNumber)
+{
+   ClsTickets Ticket =  ClsTickets.Find(PassengerUserName , clsFlight.Find(FlightNumber));
+   Ticket.Delete();
+}
+
+public ArrayList <ClsTickets> GetTickets()
+{
+    ArrayList <ClsTickets> AllTickets = ClsTickets.GetAllTickets();
+
+    ArrayList <ClsTickets> PassengerTickets = new ArrayList<>();
+
+    for(ClsTickets Ticket : AllTickets)
+    {
+        if(Ticket.GetUserName().equals(PassengerUserName))
+           PassengerTickets.add(Ticket);
+    }
+
+    return PassengerTickets;
+}
+
 }
 

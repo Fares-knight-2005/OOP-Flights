@@ -24,6 +24,17 @@ public class ClsTickets {
      
     }
     
+
+    public String GetUserName()
+    {
+        return username;
+    }
+
+    public clsFlight GetFlight()
+    {
+        return Flight;
+    }
+
     //
     private static String ConvertToline(ClsTickets tickect){
       
@@ -149,14 +160,14 @@ public class ClsTickets {
     }
 
 
-    public void Delete(ClsTickets Ticket)
+    public void Delete()
     {
-        if(Ticket.equals(Getemptyobject()))
+        if(this.equals(Getemptyobject()))
           return;
 
         ArrayList <ClsTickets> AllTickets = GetAllTickets();
         
-        AllTickets.remove(Ticket);
+        AllTickets.remove(this);
 
         Save(AllTickets);
         
