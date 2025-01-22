@@ -1,84 +1,47 @@
 
 
 public class clsLoginScreen extends clsScreeen{
-      
+
     private enum enWhatToDO {CreatNewAccount , Login , SysLine};
 
 
-    private static ClsPassengers log()  
-    {
-        NewScreen("\t         Login Screen" , 55);
 
-        System.out.println("Enter Your User Name : ");
 
-        String UserName = clsImportantClass.ReadString();
-
-        System.out.println("Enter Your Password : ");
-
-        String Password = clsImportantClass.ReadString();
-
-        ClsPassengers CurrentPassenger = ClsPassengers.CheckByUserNameAndPasword(UserName, Password);
-
-        return CurrentPassenger;
-
-    }
-
- 
     private static void GenrateLogin(enWhatToDO WhatToDo)
     {
         switch (WhatToDo) {
             case CreatNewAccount:
 
-            clsImportantClass.ClearScreen();
-            clsCreatNewAccount.AddNewAccount();
-          //  System.out.println("Screen Will Be Here Nearly \n");
-            System.out.println("Press Any Key To Go Back To to Login Screen...");
-            clsImportantClass.ReadString();
-            LogIn();
-            break;
+                clsImportantClass.ClearScreen();
+                System.out.println("Screen Will Be Here Nearly \n");
+                clsCreatNewAccount.AddNewAccount();
+               System.out.println("Press Any Key To Go Back To to Login Screen...");
+                clsImportantClass.ReadString();
+                LogIn();
+                break;
 
 
             case Login:
-
-            ClsPassengers CurrentPassenger = log();
-
-            if(CurrentPassenger.equals(ClsPassengers.GetEmptyobject()))
-            {
-               System.out.println("\n");
-                System.out.println("Wrong User Name Or Password :(");
-                System.out.println("Do You Want To Try Again [y/n] : ");
-                String Try = clsImportantClass.ReadString();
-
-                if(Try.charAt(0) == 'y')
-                {
-                   log();
-                }
-            }
-
-            else
-            {
                 clsImportantClass.ClearScreen();
                 //System.out.println("Screen Will Be Here Nearly \n");
                 //System.out.println("Press Any Key To Go Back To to Login Screen...");
-             //   clsImportantClass.ReadString();
-               // clsImportantClass.ReadString();
+                //   clsImportantClass.ReadString();
+                // clsImportantClass.ReadString();
                 MainMenu.MainMenu();
-            }
-
-            LogIn();
-            break;
+                LogIn();
+                break;
 
 
             case SysLine:
 
-            clsImportantClass.ClearScreen();
-           // System.out.println("Screen Will Be Here Nearly \n");
-           // System.out.println("Press Any Key To Go Back To to Login Screen...");
-        //    clsImportantClass.ReadString();
-          //  clsImportantClass.ReadString();
-           clsSystem.SystemScreen();
-            LogIn();
-            break;
+                clsImportantClass.ClearScreen();
+                 System.out.println("Screen Will Be Here Nearly \n");
+                System.out.println("Press Any Key To Go Back To to Login Screen...");
+                    clsImportantClass.ReadString();
+                // clsImportantClass.ReadString();
+                clsSystem.SystemScreen();
+                LogIn();
+                break;
 
 
         }
@@ -104,10 +67,10 @@ public class clsLoginScreen extends clsScreeen{
         System.out.println( "===========================================");
 
         System.out.println();
-        
-        System.out.print("Enter What Do You Want To Do [1 --> 3] : ");
-            int ToDo = clsImportantClass.ReadIntNumber();
 
-            GenrateLogin(enWhatToDO.values()[ToDo - 1]);
-      }    
-}   
+        System.out.print("Enter What Do You Want To Do [1 --> 3] : ");
+        int ToDo = clsImportantClass.ReadIntNumber();
+
+        GenrateLogin(enWhatToDO.values()[ToDo - 1]);
+    }
+}
