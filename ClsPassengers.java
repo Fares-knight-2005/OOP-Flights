@@ -1,4 +1,4 @@
-package passenger;
+
 
 
 import java.io.BufferedReader;
@@ -15,7 +15,6 @@ public class ClsPassengers {
  private int PassengerAge;
  private int PassengerCash ;
  private String pasword ;
- String [] arr ;
 
   
 
@@ -109,7 +108,7 @@ try{
 }
 
 public static ClsPassengers GetEmptyobject (){
-ClsPassengers passenger = new passenger.ClsPassengers();
+ClsPassengers passenger = new ClsPassengers();
 return passenger ;
 }
 

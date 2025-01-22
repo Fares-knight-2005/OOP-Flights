@@ -14,7 +14,8 @@ public class clsLoginScreen extends clsScreeen{
             case CreatNewAccount:
 
             clsImportantClass.ClearScreen();
-            System.out.println("Screen Will Be Here Nearly \n");
+            clsAddNewFlight.AddNewFlight();
+          //  System.out.println("Screen Will Be Here Nearly \n");
             System.out.println("Press Any Key To Go Back To to Login Screen...");
             clsImportantClass.ReadString();
             LogIn();
