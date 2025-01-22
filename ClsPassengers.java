@@ -158,7 +158,7 @@ public static ArrayList<ClsPassengers> GetAllPassenger(){
 
 public static ClsPassengers CheckByUserNameAndPasword(String userName,String pasword){
   
-    ArrayList<ClsPassengers> passengers=new ArrayList();
+    ArrayList<ClsPassengers> passengers= new ArrayList();
     passengers.addAll(GetAllPassenger());
     boolean find =false;
     ClsPassengers p1 =new ClsPassengers();
