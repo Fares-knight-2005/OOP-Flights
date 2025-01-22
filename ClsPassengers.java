@@ -159,7 +159,7 @@ public static ArrayList<ClsPassengers> GetAllPassenger(){
 public static ClsPassengers CheckByUserNameAndPasword(String userName,String pasword){
   
     ArrayList<ClsPassengers> passengers= new ArrayList();
-    passengers.addAll(GetAllPassenger());
+    passengers = GetAllPassenger();
     boolean find =false;
     ClsPassengers p1 =new ClsPassengers();
     for(int i=0;i<passengers.size();i++){
@@ -169,15 +169,13 @@ public static ClsPassengers CheckByUserNameAndPasword(String userName,String pas
            
             find = true;
             p1=passengers.get(i);
-            
-            
         }
     
     }
     
     }
     if (find==false)
-    { p1.GetEmptyobject();}
+    { p1 =GetEmptyobject();}
     return p1;
 }
 }

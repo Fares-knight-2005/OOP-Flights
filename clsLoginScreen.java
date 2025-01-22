@@ -42,19 +42,9 @@ public class clsLoginScreen extends clsScreeen{
 
             ClsPassengers CurrentPassenger = log();
 
-            if(!CurrentPassenger.equals(ClsPassengers.GetEmptyobject()))
+            if(CurrentPassenger.equals(ClsPassengers.GetEmptyobject()))
             {
-            clsImportantClass.ClearScreen();
-            //System.out.println("Screen Will Be Here Nearly \n");
-            //System.out.println("Press Any Key To Go Back To to Login Screen...");
-         //   clsImportantClass.ReadString();
-           // clsImportantClass.ReadString();
-            MainMenu.MainMenu();
-            }
-
-            else
-            {
-                System.out.println("\n");
+               System.out.println("\n");
                 System.out.println("Wrong User Name Or Password :(");
                 System.out.println("Do You Want To Try Again [y/n] : ");
                 String Try = clsImportantClass.ReadString();
@@ -63,6 +53,16 @@ public class clsLoginScreen extends clsScreeen{
                 {
                    log();
                 }
+            }
+
+            else
+            {
+                clsImportantClass.ClearScreen();
+                //System.out.println("Screen Will Be Here Nearly \n");
+                //System.out.println("Press Any Key To Go Back To to Login Screen...");
+             //   clsImportantClass.ReadString();
+               // clsImportantClass.ReadString();
+                MainMenu.MainMenu();
             }
 
             LogIn();
