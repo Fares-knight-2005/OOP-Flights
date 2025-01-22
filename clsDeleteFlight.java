@@ -6,7 +6,7 @@ System.out.println("enter number of Flight");
 String NumberOfFlight= clsImportantClass.ReadString();
 ArrayList<clsFlight> newArrayafterdelete=clsFlight.GetAllFlights();
 clsFlight flightwanttodelet = clsFlight.Find(NumberOfFlight);
-flightwanttodelet.setDelete(true);
+//flightwanttodelet.setDelete(true);
 
 // int index= newArrayafterdelete.indexOf(flightwanttodelet);
 // System.out.println(index);
