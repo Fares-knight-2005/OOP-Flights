@@ -13,8 +13,25 @@ public class clsSearchForaFlight {
         clsImportantClass.ClearScreen();
         System.out.println("Enter The country you want to go ?");
         String countryto = clsImportantClass.ReadString();
+        clsImportantClass.ClearScreen();
+
+        System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+        System.out.println("|                                                              Flights Informations                                                                        |");
+        System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+        System.out.println("| Flight Num | From Country | To Country | Travel Date  |  Go Back Date  | Chears Num | Passegers Num | Going Time | Arraiving Time | Stay in The Sky hours|");
+        System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+
+       
         ArrayList<Integer> allprices = new ArrayList<>();
         ArrayList<clsFlight> allcountryflights = clsFlight.ArrayHaveAllFlightsCountry(countryto);
+         if(allcountryflights.isEmpty())
+        {
+            
+          System.out.println("                                                                  No Flights Exest");
+          System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+
+          return;
+        }
         Comparator<clsFlight> priceComparator;
         switch (x) {
             case 1:
@@ -40,7 +57,7 @@ public class clsSearchForaFlight {
                     clsShowFlghts.printOneFlight(e);                   }
 
             default:
-                throw new IllegalArgumentException("Unexpected value: " + x);
+                System.out.println("enter Between [1] --> [2]");
         }
 
     }

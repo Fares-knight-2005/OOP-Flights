@@ -1,5 +1,5 @@
 
-package javaapplication11;
+
 
 
 public class ClsBookNewTiceket extends clsScreeen {
@@ -10,9 +10,9 @@ public class ClsBookNewTiceket extends clsScreeen {
         System.out.println("");
         String flightNum =clsImportantClass.ReadString();
         clsFlight flight = clsFlight.Find(flightNum);
-        clsFlight isempty= clsFlight.GetEmptyObject();
+      
         
-        if (flight==isempty)
+        if (flight.IsFlightEmpty(flight))
         {
             System.out.println("the flight number is wrong pleas try another number ");
              SerchForFlight();
@@ -31,18 +31,31 @@ public class ClsBookNewTiceket extends clsScreeen {
         }
         else{
             System.out.println("");
-            System.out.println("");
+            System.out.println("this ticek price is :"+flight.GetPrice());
             System.out.println("are you sure you want yo book this tiecket ");
             System.out.println("y/n");
             String sure =clsImportantClass.ReadString();
             if(sure.charAt(0)=='y'){
-                passenger.SetPassengerCash(passenger.Getpassengercach()-flight.GetPrice());
+                
+                System.out.println("we have book anew ticket for you");
+                
+                passenger.SetPassengerCash((passenger.Getpassengercach() - ( flight.GetPrice())));
+                
+                passenger.DeletPassenger();
+                
+                ClsPassengers.AddNew(passenger);
+                
+                ClsPassengers.Save(ClsPassengers.GetAllPassenger());
+                
                 ClsTickets.AddNew(flight, passenger.GetPassengerUserName()); 
+                
+                
             
             }
             else{
                 System.out.println("we didnt book the ticeket");
                 
+                return;
             }
         }
       clsImportantClass.ClearScreen();

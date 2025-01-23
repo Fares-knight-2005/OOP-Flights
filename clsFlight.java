@@ -7,12 +7,12 @@ import java.util.ArrayList;
 
 public class clsFlight {
 
-    private int NumberOfChars;
-    private int NumberOfPasengers;
+    private int    NumberOfChars;
+    private int    NumberOfPasengers;
     private String NumberOfFlight;
     private String DateToTravel;
     private String DateToGoBack;
-    private int price;
+    private int    price;
     private String FromCountry;
     private String ToCountry;
     private String StringTimeOfGo;
@@ -257,10 +257,18 @@ public class clsFlight {
             if(e.ToCountry.equals(Countryto)){
             arrayListWithcountry.add(e);}
         }
-return arrayListWithcountry;
-
-
+        return arrayListWithcountry;
     }
 
-
+ 
+  public boolean IsFlightEmpty ( clsFlight flight){
+ 
+  
+   if (flight.DateToGoBack==""&&flight.DateToTravel==""&&flight.FromCountry==""&&flight.HowMuchTimeInTheSky==""&&flight.NumberOfChars==0&&
+           flight.NumberOfFlight==""&&flight.NumberOfPasengers==0&&flight.StringTimeOfGo==""&&flight.TimeOfArriving==""&&flight.ToCountry==""&&
+           flight.price==0){
+   return true ;
+   }
+  return false ;
+  } 
 }

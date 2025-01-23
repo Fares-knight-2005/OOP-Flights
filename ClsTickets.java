@@ -1,28 +1,40 @@
 
-package javaapplication11;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class ClsTickets {
      private clsFlight Flight ;
     
-    private String username;
+     private String username;
     
      LocalTime currenttime ;
     
      
     
-    public ClsTickets(clsFlight flight ,String username){
+    public ClsTickets(clsFlight flight ,String username)
+    {
       this.Flight =flight ;
       this.username=username;
      currenttime=LocalTime.now();
      
     }
     
+
+    public String GetUserName()
+    {
+        return username;
+    }
+
+    public clsFlight GetFlight()
+    {
+        return Flight;
+    }
+
     //
     private static String ConvertToline(ClsTickets tickect){
       
@@ -81,5 +93,88 @@ public class ClsTickets {
            }
        return object ;
     }
+
+
+    public static ArrayList <ClsTickets> GetAllTickets()
+    {
+        
+        ArrayList <ClsTickets> AllTickets = new ArrayList<>();
+        try{
+
+           BufferedReader Reader = new BufferedReader(new FileReader("ticket.txt"));
+
+          
+
+           String Line ="";
+
+           while ( (Line = Reader.readLine()) != null) {
+            AllTickets.add(ConvertlineToObject(Line));
+           }
+
+           Reader.close();
+           return AllTickets;
+
+        }catch(Exception e)
+        {
+            e.fillInStackTrace();
+            return AllTickets;
+        }
+    }
+
+
+    public static ClsTickets Find(String UserName , clsFlight Flight)
+    {
+        ArrayList <ClsTickets> AllTickets = GetAllTickets();
+
+        for(ClsTickets Ticket : AllTickets)
+        {
+             if(Ticket.username.equals(UserName))
+                if(Ticket.Flight.equals(Flight))
+                   return Ticket;
+        }  
+
+        return Getemptyobject();
+
+    }
+
+    public static void Save(ArrayList <ClsTickets> AllTickets)
+    {
+        try{
+
+            
+            BufferedWriter Writer = new BufferedWriter(new FileWriter("ticket.txt"));
+    
+    
+            String Line;
+            for(ClsTickets Ticket : AllTickets)
+            {
+                Line = ConvertToline(Ticket);
+                Writer.write(Line);
+            }
+    
+            }
+            catch(Exception e)
+            {
+                e.fillInStackTrace();
+            }
+    }
+
+
+    public void Delete()
+    {
+        if(this.equals(Getemptyobject()))
+          return;
+
+        ArrayList <ClsTickets> AllTickets = GetAllTickets();
+        
+        AllTickets.remove(this);
+
+        Save(AllTickets);
+        
+    }
+
+    
+    
+  
     
 }

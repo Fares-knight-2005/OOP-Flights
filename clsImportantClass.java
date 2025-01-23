@@ -72,10 +72,19 @@ public class clsImportantClass {
 
     public static int ReadIntNumber()
     {
-       int num = input.nextInt();
-       input.nextLine();
-       return num;
-       
+       int num;
+      while (true) { 
+    try {
+        num = input.nextInt();
+        break;
+    } catch (NumberFormatException  e) {
+        System.out.println("Wrong input please Enter Number");
+        ReadIntNumber();
+    }
+      }
+
+      input.nextLine();
+       return num;  
     }
  
  

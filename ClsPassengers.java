@@ -1,4 +1,4 @@
-package passenger;
+
 
 
 import java.io.BufferedReader;
@@ -15,11 +15,10 @@ public class ClsPassengers {
  private int PassengerAge;
  private int PassengerCash ;
  private String pasword ;
- String [] arr ;
 
   
- 
 
+ 
   //هاد باني فارغ يعني بيعطي قيم صفر لل انتجر و فراغ لل سترينغ
   public ClsPassengers(){
   
@@ -30,10 +29,8 @@ public class ClsPassengers {
    PassengerCash=0;
   }
   
-    //هاد هو الكونستركتر العادي الطلب رقم2  
-
-  
- public ClsPassengers(String PassengerUserName,String PassengerName ,
+  //هاد هو الكونستركتر العادي الطلب رقم2  
+   public ClsPassengers(String PassengerUserName,String PassengerName ,
            int PassengerAge,int PassengerCash,String pasword){
           
        this.PassengerUserName= PassengerUserName;
@@ -43,36 +40,45 @@ public class ClsPassengers {
        this.pasword=pasword;
    }
   
+
   
   
   //هون الستير و الجيتر مافيهن شي مميز 
 public void SetPassengerUserName(String passengeruserName){
 this.PassengerUserName=passengeruserName;
 }
+
 public void SetPassengerName(String passengerName){
 this.PassengerName=passengerName;
 }
+
 public void SetPassengerAge(int age){
 this.PassengerAge=age;
 }
-public void SetPassengerCash(int cach){
-this.PassengerCash=cach;
+
+public void SetPassengerCash(int PassengerCash){
+this.PassengerCash=PassengerCash;
 }
+
 public void Setpasword(String pasword){
 this.pasword=pasword;
 }
 public String  GetPassengerUserName(){
     return PassengerUserName;
 }
+
 public String GetpassengerName(){
 return PassengerName;
 }
+
 public int GetpassengerAge(){
 return PassengerAge ;
 }
+
 public int Getpassengercach (){
  return   PassengerCash;
 }
+
 public String Getpasword (){
 return pasword ;
 }
@@ -93,7 +99,7 @@ public static void AddNew(ClsPassengers passenger){
 try{
  BufferedWriter write = new BufferedWriter (new FileWriter ("user.txt",true));
  
- write.write(ConvertToLine(passenger));
+ write.write(ConvertToLine(passenger) + "\n");
  
  write.close();
  }catch(Exception e){
@@ -102,7 +108,7 @@ try{
 }
 
 public static ClsPassengers GetEmptyobject (){
-ClsPassengers passenger = new passenger.ClsPassengers();
+ClsPassengers passenger = new ClsPassengers();
 return passenger ;
 }
 
@@ -143,6 +149,7 @@ public static ArrayList<ClsPassengers> GetAllPassenger(){
             allpassnger.add(ConvertLineToObject(line));
             
         }
+        read.close();
         
  }catch(Exception e){
  e.fillInStackTrace();
@@ -150,29 +157,86 @@ public static ArrayList<ClsPassengers> GetAllPassenger(){
     return allpassnger;
 }
 
+public void DeletPassenger (){
+     
+    ArrayList <ClsPassengers> allpassenger=GetAllPassenger();
+    
+    for(int i =0 ; i<allpassenger.size();i++){
+        
+        ClsPassengers passenger=allpassenger.get(i) ;
+        if(passenger.PassengerUserName.equals(this.PassengerUserName)){
+            allpassenger.remove(i);
+            ClsPassengers.Save(allpassenger);
+            break ;
+            
+        }
+        
+        
+    }
+}
+
 public static ClsPassengers CheckByUserNameAndPasword(String userName,String pasword){
   
-    ArrayList<ClsPassengers> passengers=new ArrayList();
-    passengers.addAll(GetAllPassenger());
-    boolean find =false;
-    ClsPassengers p1 =new ClsPassengers();
-    for(int i=0;i<passengers.size();i++){
-    if(passengers.get(i).PassengerUserName.equals(userName)){
+    ArrayList<ClsPassengers> passengers = GetAllPassenger();
+
+    for(ClsPassengers Passenger : passengers){
+    if(Passenger.PassengerUserName.equals(userName)){
        
-        if(passengers.get(i).pasword.equals(pasword)){
+        if(Passenger.pasword.equals(pasword)){
            
-            find = true;
-            p1=passengers.get(i);
-            
-            
+            return Passenger;
         }
     
     }
-    
+
     }
-    if (find==false)
-    { p1.GetEmptyobject();}
-    return p1;
+    return GetEmptyobject();
+
+}
+
+
+public void AddTicket(clsFlight Flifght)
+{
+    ClsTickets.AddNew(Flifght, PassengerUserName);
+}
+
+public void DeleteTicket(String FlightNumber)
+{
+   ClsTickets Ticket =  ClsTickets.Find(PassengerUserName , clsFlight.Find(FlightNumber));
+   Ticket.Delete();
+}
+
+public ArrayList <ClsTickets> GetTickets()
+{
+    ArrayList <ClsTickets> AllTickets = ClsTickets.GetAllTickets();
+
+    ArrayList <ClsTickets> PassengerTickets = new ArrayList<>();
+
+    for(ClsTickets Ticket : AllTickets)
+    {
+        if(Ticket.GetUserName().equals(PassengerUserName))
+           PassengerTickets.add(Ticket);
+    }
+
+    return PassengerTickets;
+}
+
+public static void Save(ArrayList <ClsPassengers> NewAllPassenger){
+    
+    try{
+    BufferedWriter write = new BufferedWriter(new FileWriter("user.txt"));
+    
+    String line = "" ;
+    
+    for(ClsPassengers passenger :NewAllPassenger ){
+        
+        line=ClsPassengers.ConvertToLine(passenger);
+        write.write(line+"\n");
+    }
+    write.close();
+    }catch(Exception e){
+ e.fillInStackTrace();
+ }
 }
 }
 
