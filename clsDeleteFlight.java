@@ -1,11 +1,16 @@
 
 import java.util.ArrayList;
 public class clsDeleteFlight {
+
     public static void DeleteFlight(){
 System.out.println("enter number of Flight : ");
 String NumberOfFlight= clsImportantClass.ReadString();
 ArrayList<clsFlight> newArrayafterdelete=clsFlight.GetAllFlights();
-clsFlight flightwanttodelet = clsFlight.Find(NumberOfFlight);
+if(clsFlight.Find(NumberOfFlight).equals(clsFlight.GetEmptyObject()))
+{
+    System.out.println("\n couldn't Find User :( ");
+    return;
+}
 //flightwanttodelet.setDelete(true);
 
 // int index= newArrayafterdelete.indexOf(flightwanttodelet);
@@ -18,18 +23,24 @@ clsFlight flightwanttodelet = clsFlight.Find(NumberOfFlight);
 // test.remove(2);
 // System.out.println(test);
     // newArrayafterdelete.remove(clsFlight.Find(NumberOfFlight));
-     for (clsFlight e : newArrayafterdelete) {
-          System.out.println(e.GetNumberOfFlight());
-         
+     for (int i = 0 ; i < newArrayafterdelete.size() ; i++)
+     {
+        if(newArrayafterdelete.get(i).GetNumberOfFlight().equals(NumberOfFlight))
+        {
+            newArrayafterdelete.get(i).MarkToDelete = true;
+            break;
+        }
+     }
+         clsFlight.Save(newArrayafterdelete);
       }
-     clsFlight.Save(newArrayafterdelete);
+     
     // System.out.println("done");
    
   
      }
 
 
-}
+
 
 
     
