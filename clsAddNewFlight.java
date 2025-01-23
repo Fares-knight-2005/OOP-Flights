@@ -16,12 +16,12 @@ public class clsAddNewFlight extends clsScreeen{
         ArrayList <clsFlight> AllFlights = clsFlight.GetAllFlights();
         for(clsFlight F : AllFlights)
         {
-            if(F.GetNumberOfFlight().equals(Flight.GetNumberOfFlight()))
+            if(F.GetNumberOfFlight().equals(Flight.GetNumberOfFlight())){
               System.out.println("Already Exest Try Another Flight Number");
-              Exest = true;
+              Exest = true;}
         }
         System.out.println();
-        if (Exest) {
+        if (!Exest) {
             break;
         }
       }

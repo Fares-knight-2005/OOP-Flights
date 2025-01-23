@@ -1,5 +1,6 @@
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 public class clsCreatNewAccount extends  clsScreeen {
     private static Scanner s = new Scanner(System.in);
@@ -7,11 +8,24 @@ public class clsCreatNewAccount extends  clsScreeen {
     private static ClsPassengers AddNew() {
 
         ClsPassengers obj = ClsPassengers.GetEmptyobject();
-        System.out.print("Enter the user name : ");
-        String username = s.nextLine();
+        boolean Exest = false;
+      while(true){
+        System.out.print("Enter The User Name : ");
+        obj.SetPassengerUserName(clsImportantClass.ReadString());
+        ArrayList <ClsPassengers> AllPassengers = ClsPassengers.GetAllPassenger();
+        for(ClsPassengers P : AllPassengers)
+        {
+            if(P.GetPassengerUserName().equals(obj.GetPassengerUserName())){
+              System.out.println("Already Exest Try Another User Name");
+                Exest = true;
+            }
+        }
+      
         System.out.println();
+        if (!Exest) {
+            break;
+        }
 
-        obj.SetPassengerUserName(username);
         System.out.print("Enter your name : ");
         String name = s.nextLine();
         System.out.println();
