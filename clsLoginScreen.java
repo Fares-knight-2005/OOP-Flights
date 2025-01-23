@@ -64,7 +64,7 @@ public class clsLoginScreen extends clsScreeen{
                 //System.out.println("Press Any Key To Go Back To to Login Screen...");
              //   clsImportantClass.ReadString();
                // clsImportantClass.ReadString();
-                 MainMenu.MainMenu();
+                 MainMenu.MainMenu(CurrentPassenger);
             }
 
             LogIn();
@@ -74,9 +74,9 @@ public class clsLoginScreen extends clsScreeen{
             case SysLine:
 
             clsImportantClass.ClearScreen();
-           // System.out.println("Screen Will Be Here Nearly \n");
-           // System.out.println("Press Any Key To Go Back To to Login Screen...");
-        //    clsImportantClass.ReadString();
+             // System.out.println("Screen Will Be Here Nearly \n");
+            // System.out.println("Press Any Key To Go Back To to Login Screen...");
+           //    clsImportantClass.ReadString();
           //  clsImportantClass.ReadString();
            clsSystem.SystemScreen();
             LogIn();
