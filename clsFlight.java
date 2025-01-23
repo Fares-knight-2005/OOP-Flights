@@ -18,6 +18,7 @@ public class clsFlight {
     private String StringTimeOfGo;
     private String TimeOfArriving;
     private String HowMuchTimeInTheSky;
+    public boolean MarkToDelete;
 
     public clsFlight(int NumberOfChars , int NumberOfPasengers , String NumberOfFlight , String DateToTravel , 
     String DateToGoBack , int price , String FromCountry , String ToCountry ,String StringTimeOfGo , 
@@ -34,6 +35,7 @@ public class clsFlight {
         this.StringTimeOfGo = StringTimeOfGo;
         this.TimeOfArriving =TimeOfArriving;
         this.HowMuchTimeInTheSky = HowMuchTimeInTheSky;
+        this.MarkToDelete = false;
     }
 
     public int GetNumberOfChars()
@@ -235,10 +237,11 @@ public class clsFlight {
         String Line;
         for(clsFlight Flight : AllFlights)
         {
+            if(!Flight.MarkToDelete){
             Line = ConvertObjectToLine(Flight);
-            Writer.write(Line);
+            Writer.write(Line + "\n");}
         }
-
+        Writer.close();
         }
         catch(Exception e)
         {

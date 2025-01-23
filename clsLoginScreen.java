@@ -7,6 +7,8 @@ public class clsLoginScreen extends clsScreeen{
 
     private static ClsPassengers log()  
     {
+        clsImportantClass.ClearScreen();
+
         NewScreen("\t         Login Screen" , 55);
 
         System.out.println("Enter Your User Name : ");
@@ -42,7 +44,7 @@ public class clsLoginScreen extends clsScreeen{
 
             ClsPassengers CurrentPassenger = log();
 
-            if(CurrentPassenger.equals(ClsPassengers.GetEmptyobject()))
+            if(CurrentPassenger.Getpassengercach() == 0)
             {
                System.out.println("\n");
                 System.out.println("Wrong User Name Or Password :(");
@@ -51,7 +53,7 @@ public class clsLoginScreen extends clsScreeen{
 
                 if(Try.charAt(0) == 'y')
                 {
-                   log();
+                   GenrateLogin(enWhatToDO.Login);
                 }
             }
 
@@ -62,7 +64,7 @@ public class clsLoginScreen extends clsScreeen{
                 //System.out.println("Press Any Key To Go Back To to Login Screen...");
              //   clsImportantClass.ReadString();
                // clsImportantClass.ReadString();
-                MainMenu.MainMenu();
+                 MainMenu.MainMenu(CurrentPassenger);
             }
 
             LogIn();
@@ -72,9 +74,9 @@ public class clsLoginScreen extends clsScreeen{
             case SysLine:
 
             clsImportantClass.ClearScreen();
-           // System.out.println("Screen Will Be Here Nearly \n");
-           // System.out.println("Press Any Key To Go Back To to Login Screen...");
-        //    clsImportantClass.ReadString();
+             // System.out.println("Screen Will Be Here Nearly \n");
+            // System.out.println("Press Any Key To Go Back To to Login Screen...");
+           //    clsImportantClass.ReadString();
           //  clsImportantClass.ReadString();
            clsSystem.SystemScreen();
             LogIn();

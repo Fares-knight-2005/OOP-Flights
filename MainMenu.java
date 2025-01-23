@@ -9,7 +9,7 @@ public class MainMenu extends clsScreeen{
     private static Scanner input = new Scanner(System.in);
 
 
-    private static void GenrateMainMenu(enWhatToDO WhatToDO)
+    private static void GenrateMainMenu(enWhatToDO WhatToDO , ClsPassengers CurrentPassenger)
     {
 
         switch(WhatToDO)
@@ -20,7 +20,7 @@ public class MainMenu extends clsScreeen{
           System.out.println("Press Any Key To Go Back To Main Menu...");
           input.nextLine();
           input.nextLine();
-          MainMenu();
+          MainMenu(CurrentPassenger);
           break;
 
           case SearchForaFlight:
@@ -30,7 +30,7 @@ public class MainMenu extends clsScreeen{
           System.out.println("Press Any Key To Go Back To Main Menu...");
           input.nextLine();
           input.nextLine();
-          MainMenu();
+          MainMenu(CurrentPassenger);
           break;
 
           case MyBooks:
@@ -40,7 +40,7 @@ public class MainMenu extends clsScreeen{
           System.out.println("Press Any Key To Go Back To Main Menu...");
           input.nextLine();
           input.nextLine();
-          MainMenu();
+          MainMenu(CurrentPassenger);
           break;
 
           case BookNewFlight:
@@ -49,7 +49,7 @@ public class MainMenu extends clsScreeen{
           System.out.println("Press Any Key To Go Back To Main Menu...");
           input.nextLine();
           input.nextLine();
-          MainMenu();
+          MainMenu(CurrentPassenger);
           break;
 
           case DeleteFlight:
@@ -58,7 +58,7 @@ public class MainMenu extends clsScreeen{
           System.out.println("Press Any Key To Go Back To Main Menu...");
           input.nextLine();
           input.nextLine();
-          MainMenu();
+          MainMenu(CurrentPassenger);
           break;
 
 
@@ -66,13 +66,13 @@ public class MainMenu extends clsScreeen{
           break;
 
           default:
-          MainMenu();
+          MainMenu(CurrentPassenger);
 
         }
     }
 
 
-    public static void MainMenu()
+    public static void MainMenu(ClsPassengers CurrentPassenger)
     {
 
         clsImportantClass.ClearScreen();
@@ -96,7 +96,7 @@ public class MainMenu extends clsScreeen{
             System.out.print("Enter What Do You Want To Do [1 --> 6] : ");
             int ToDo = input.nextInt();
 
-            GenrateMainMenu(enWhatToDO.values()[ToDo - 1]);
+            GenrateMainMenu(enWhatToDO.values()[ToDo - 1] , CurrentPassenger);
         
     }
 
