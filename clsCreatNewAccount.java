@@ -24,7 +24,7 @@ public class clsCreatNewAccount extends  clsScreeen {
         System.out.println();
         if (!Exest) {
             break;
-        }
+        }}
 
         System.out.print("Enter your name : ");
         String name = s.nextLine();
