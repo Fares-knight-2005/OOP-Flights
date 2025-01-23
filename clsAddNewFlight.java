@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class clsAddNewFlight extends clsScreeen{
 
@@ -8,11 +9,22 @@ public class clsAddNewFlight extends clsScreeen{
     {
         clsFlight Flight = clsFlight.GetEmptyObject();
 
-      
+        boolean Exest = false;
+      while(true){
         System.out.print("Enter The Number Of The Flight of Type [A100] : ");
         Flight.setNumberOfFlight(clsImportantClass.ReadString());
+        ArrayList <clsFlight> AllFlights = clsFlight.GetAllFlights();
+        for(clsFlight F : AllFlights)
+        {
+            if(F.GetNumberOfFlight().equals(Flight.GetNumberOfFlight()))
+              System.out.println("Already Exest Try Another Flight Number");
+              Exest = true;
+        }
         System.out.println();
-
+        if (Exest) {
+            break;
+        }
+      }
         System.out.print("How Many Chears In The Flight : ");
         Flight.setNumberOfChears( clsImportantClass.ReadIntNumber());
         System.out.println();
