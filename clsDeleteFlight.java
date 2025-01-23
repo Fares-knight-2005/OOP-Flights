@@ -11,6 +11,16 @@ if(clsFlight.Find(NumberOfFlight).equals(clsFlight.GetEmptyObject()))
     System.out.println("\n couldn't Find User :( ");
     return;
 }
+
+for(ClsTickets Ticket : ClsTickets.GetAllTickets())
+{
+    if(Ticket.GetFlight().GetNumberOfFlight().equals(NumberOfFlight)){
+        System.out.println();
+        System.out.println("You Cann't Delete Flight Some Books Exest :( ");
+        return;
+    }
+} 
+
 //flightwanttodelet.setDelete(true);
 
 // int index= newArrayafterdelete.indexOf(flightwanttodelet);
@@ -32,6 +42,9 @@ if(clsFlight.Find(NumberOfFlight).equals(clsFlight.GetEmptyObject()))
         }
      }
          clsFlight.Save(newArrayafterdelete);
+         System.out.println();
+         System.out.println("Deleted Successfuly\n\n");
+
       }
      
     // System.out.println("done");
