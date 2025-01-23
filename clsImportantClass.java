@@ -83,7 +83,7 @@ public class clsImportantClass {
     }
       }
 
-      input.nextInt();
+      input.nextLine();
        return num;  
     }
  
