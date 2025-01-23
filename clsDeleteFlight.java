@@ -41,9 +41,16 @@ for(ClsTickets Ticket : ClsTickets.GetAllTickets())
             break;
         }
      }
+
+     System.out.println("Are You Sure To Delete [y/n] : ");
+     String Sure = clsImportantClass.ReadString();
+     if(Sure.charAt(0) == 'y'){
          clsFlight.Save(newArrayafterdelete);
          System.out.println();
          System.out.println("Deleted Successfuly\n\n");
+     }
+
+     else{System.out.println("Didn't Save :)");}
 
       }
      
