@@ -99,7 +99,7 @@ public static void AddNew(ClsPassengers passenger){
 try{
  BufferedWriter write = new BufferedWriter (new FileWriter ("user.txt",true));
  
- write.write(ConvertToLine(passenger));
+ write.write(ConvertToLine(passenger) + "\n");
  
  write.close();
  }catch(Exception e){
@@ -158,25 +158,21 @@ public static ArrayList<ClsPassengers> GetAllPassenger(){
 
 public static ClsPassengers CheckByUserNameAndPasword(String userName,String pasword){
   
-    ArrayList<ClsPassengers> passengers= new ArrayList();
-    passengers = GetAllPassenger();
-    boolean find =false;
-    ClsPassengers p1 =new ClsPassengers();
-    for(int i=0;i<passengers.size();i++){
-    if(passengers.get(i).PassengerUserName.equals(userName)){
+    ArrayList<ClsPassengers> passengers = GetAllPassenger();
+
+    for(ClsPassengers Passenger : passengers){
+    if(Passenger.PassengerUserName.equals(userName)){
        
-        if(passengers.get(i).pasword.equals(pasword)){
+        if(Passenger.pasword.equals(pasword)){
            
-            find = true;
-            p1=passengers.get(i);
+            return Passenger;
         }
     
     }
-    
+
     }
-    if (find==false)
-    { p1 =GetEmptyobject();}
-    return p1;
+    return GetEmptyobject();
+
 }
 
 
