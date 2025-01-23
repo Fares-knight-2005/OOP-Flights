@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 public class clsDeleteFlight {
     public static void DeleteFlight(){
-System.out.println("enter number of Flight");
+System.out.println("enter number of Flight : ");
 String NumberOfFlight= clsImportantClass.ReadString();
 ArrayList<clsFlight> newArrayafterdelete=clsFlight.GetAllFlights();
 clsFlight flightwanttodelet = clsFlight.Find(NumberOfFlight);
