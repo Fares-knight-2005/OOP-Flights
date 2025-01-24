@@ -55,6 +55,17 @@ public class ClsBookNewTiceket extends clsScreeen {
 
                 ClsPassengers.Save(AllPassengers); 
             
+
+                ArrayList <clsFlight> AllFlights = clsFlight.GetAllFlights();
+
+                for(int i = 0 ; i <AllFlights.size(); i++)
+                {
+                    if(AllFlights.get(i).GetNumberOfFlight().equals(flight.GetNumberOfFlight()))
+                       AllFlights.get(i).setNumberOfPassengers(AllFlights.get(i).GetNumberOfPassengers()+1);
+                }
+
+                clsFlight.Save(AllFlights);
+
             }
 
             else{
