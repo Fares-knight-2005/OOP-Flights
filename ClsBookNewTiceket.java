@@ -1,12 +1,10 @@
-
-
+import java.util.ArrayList;
 
 public class ClsBookNewTiceket extends clsScreeen {
     
     private static clsFlight SerchForFlight(){
       
-        System.out.println("enter the flight number you want to book");
-        System.out.println("");
+        System.out.println("enter the flight number you want to book : ");
         String flightNum =clsImportantClass.ReadString();
         clsFlight flight = clsFlight.Find(flightNum);
       
@@ -16,46 +14,55 @@ public class ClsBookNewTiceket extends clsScreeen {
             System.out.println("the flight number is wrong pleas try another number ");
              SerchForFlight();
         }
-        clsImportantClass.ClearScreen ();
+        
         return flight ;
     }
     
     public static void BookNewTiceket(ClsPassengers passenger){
         clsFlight flight= SerchForFlight();
-        if (passenger.Getpassengercach()<flight.GetPrice()){
+
+        if (passenger.Getpassengercach() < flight.GetPrice()){
             
-            System.out.println("you dont have enough cash in your account");
+            System.out.println("you dont have enough cash in your account :(");
             
             return;
         }
+
         else{
             System.out.println("");
-            System.out.println("this ticek price is :"+flight.GetPrice());
-            System.out.println("are you sure you want yo book this tiecket ");
-            System.out.println("y/n");
+            System.out.println("this ticek price is : "+flight.GetPrice());
+            System.out.println("are you sure you want to book this Ticket [y/n] : ");
             String sure =clsImportantClass.ReadString();
+
             if(sure.charAt(0)=='y'){
                 
-                System.out.println("we have book anew ticket for you");
+                System.out.println("we have book a new ticket for you");
                 
-                passenger.SetPassengerCash((passenger.Getpassengercach() - ( flight.GetPrice())))
+                passenger.SetPassengerCash(passenger.Getpassengercach() - flight.GetPrice());
                 
-                ClsPassengers.AddNew(passenger);
+                ClsTickets.AddNew(flight, passenger.GetPassengerUserName());
                 
-                ClsPassengers.Save(ClsPassengers.GetAllPassenger());
-                
-                ClsTickets.AddNew(flight, passenger.GetPassengerUserName()); 
-                
-                
+
+                ArrayList <ClsPassengers> AllPassengers = ClsPassengers.GetAllPassenger();
+
+                for(int i = 0 ;i < AllPassengers.size() ; i++)
+                {
+                         if(AllPassengers.get(i).GetPassengerUserName().equals(passenger.GetPassengerUserName()))
+                         {
+                            AllPassengers.get(i).SetPassengerCash(passenger.Getpassengercach());
+                         }
+                }
+
+                ClsPassengers.Save(AllPassengers); 
             
             }
+
             else{
-                System.out.println("we didnt book the ticeket");
+                System.out.println("we didn't book the ticeket");
                 
                 return;
             }
         }
-      clsImportantClass.ClearScreen();
     }
    
 }
