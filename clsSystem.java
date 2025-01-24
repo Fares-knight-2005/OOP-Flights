@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class clsSystem extends clsScreeen{
     private static Scanner a = new Scanner(System.in);
 
-    private enum enWhatToDO {AddNew , Delete , GoBack};
+    private enum enWhatToDO {AddNew , Delete, Deposet , GoBack};
     private static void GenrateSystem(enWhatToDO WhatToDo)
     {
         switch (WhatToDo) {
@@ -27,6 +27,14 @@ public class clsSystem extends clsScreeen{
                 SystemScreen();
                 break;
 
+            case Deposet:
+            clsImportantClass.ClearScreen();
+              System.out.println("Screen Will Be Here Nearly \n");
+            System.out.println("Press Any Key To Go Back To to System Screen...");
+            clsImportantClass.ReadString();
+            SystemScreen();
+            break;
+
             case GoBack:
 
         }
@@ -44,14 +52,15 @@ public class clsSystem extends clsScreeen{
             System.out.println("===========================================");
             System.out.println("              AirLine System               ");
             System.out.println("===========================================");
-            System.out.println("  Add New Flight    [1]");
-            System.out.println("  Delete Flight     [2]");
-            System.out.println("  Go Back To Login  [3]");
+            System.out.println("  Add New Flight       [1]");
+            System.out.println("  Delete Flight        [2]");
+            System.out.println("  Deposet To Passenger [3]");
+            System.out.println("  Go Back To Login     [4]");
             System.out.println("===========================================");
 
             System.out.println();
 
-            System.out.print("Enter What Do You Want To Do [1 --> 3] : ");
+            System.out.print("Enter What Do You Want To Do [1 --> 4] : ");
             int ToDo = clsImportantClass.ReadIntNumber();
 
             GenrateSystem(enWhatToDO.values()[ToDo - 1]);

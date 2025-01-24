@@ -223,5 +223,21 @@ public static void Save(ArrayList <ClsPassengers> NewAllPassenger){
  }
 
 
+ public void Save(ClsPassengers PA)
+ {
+    ArrayList <ClsPassengers> AllP = GetAllPassenger();
+
+    for(int i = 0 ; i < AllP.size() ; i++)
+    {
+        if(PA.GetPassengerUserName().equals(AllP.get(i).PassengerUserName))
+        {
+            AllP.get(i).PassengerCash = PA.PassengerCash;
+        }
+    }
+
+    ClsPassengers.Save(AllP);
+
+ }
+
 }
 

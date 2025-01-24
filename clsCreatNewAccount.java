@@ -43,11 +43,6 @@ public class clsCreatNewAccount extends  clsScreeen {
         obj.SetPassengerAge(age);
         System.out.println();
 
-        System.out.print("Enter your cash : ");
-        int cash = clsImportantClass.ReadIntNumber();
-        obj.SetPassengerCash(cash);
-        System.out.println();
-
         return obj;
     }
 
