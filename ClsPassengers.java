@@ -223,21 +223,29 @@ public static void Save(ArrayList <ClsPassengers> NewAllPassenger){
  }
 
 
- public void Save(ClsPassengers PA)
+ public void Save()
  {
     ArrayList <ClsPassengers> AllP = GetAllPassenger();
 
     for(int i = 0 ; i < AllP.size() ; i++)
     {
-        if(PA.GetPassengerUserName().equals(AllP.get(i).PassengerUserName))
+        if(this.GetPassengerUserName().equals(AllP.get(i).PassengerUserName))
         {
-            AllP.get(i).PassengerCash = PA.PassengerCash;
+            AllP.get(i).PassengerCash = this.PassengerCash;
         }
     }
 
     ClsPassengers.Save(AllP);
 
  }
+
+
+ public static boolean isEmpty(ClsPassengers Passenger)
+ {
+
+    return (Passenger.PassengerName.equals(GetEmptyobject().PassengerUserName));
+ }
+
 
 }
 

@@ -29,7 +29,8 @@ public class clsSystem extends clsScreeen{
 
             case Deposet:
             clsImportantClass.ClearScreen();
-              System.out.println("Screen Will Be Here Nearly \n");
+             // System.out.println("Screen Will Be Here Nearly \n");
+             Deposet.Deposet();
             System.out.println("Press Any Key To Go Back To to System Screen...");
             clsImportantClass.ReadString();
             SystemScreen();
