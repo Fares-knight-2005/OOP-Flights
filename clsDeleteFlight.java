@@ -33,6 +33,7 @@ for(ClsTickets Ticket : ClsTickets.GetAllTickets())
 // test.remove(2);
 // System.out.println(test);
     // newArrayafterdelete.remove(clsFlight.Find(NumberOfFlight));
+    
      for (int i = 0 ; i < newArrayafterdelete.size() ; i++)
      {
         if(newArrayafterdelete.get(i).GetNumberOfFlight().equals(NumberOfFlight))

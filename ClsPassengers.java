@@ -202,5 +202,26 @@ public ArrayList <ClsTickets> GetTickets()
     return PassengerTickets;
 }
 
+
+
+public static void Save(ArrayList <ClsPassengers> NewAllPassenger){
+    
+    try{
+    BufferedWriter write = new BufferedWriter(new FileWriter("user.txt"));
+    
+    String line = "" ;
+    
+    for(ClsPassengers passenger :NewAllPassenger ){
+        
+        line=ClsPassengers.ConvertToLine(passenger);
+        write.write(line+"\n");
+    }
+    write.close();
+    }catch(Exception e){
+     e.fillInStackTrace();
+    }
+ }
+
+
 }
 

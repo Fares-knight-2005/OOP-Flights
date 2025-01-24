@@ -7,12 +7,13 @@ public class clsDeleteTicket {
         System.out.println("enter the flight number you want to delet your book on it");
         System.out.println("");
         String flightnum=clsImportantClass.ReadString();
-        clsFlight foundflight=clsFlight.Find(flightnum);
-        clsFlight emptyflight=clsFlight.GetEmptyObject();
         
-        if (foundflight.equals(emptyflight))
-        {
-            System.out.println("the flight number is wrong pleas try another number");
+        clsFlight foundflight=clsFlight.Find(flightnum);
+   
+        
+        
+        if(foundflight.IsFlightEmpty(foundflight)){
+         System.out.println("the flight number is wrong pleas try another number");
             SearchToDleletTicket();
         }
         
@@ -22,9 +23,13 @@ public class clsDeleteTicket {
     
     public static void DeletTicket (ClsPassengers passenger){
          
+         
          clsFlight found = SearchToDleletTicket();
          ClsTickets ticket=ClsTickets.Find(passenger.GetPassengerUserName(), found);
-         if (ticket.equals(ClsTickets.Getemptyobject())){
+         //هون المفروض يكون التابع يلي انا ماكنت اعرف كيف بدي ساويه
+         //عذرا منك -_-   -_-
+         if (passenger.GetTickets().size()==0){     
+         
              
              System.out.println("you dont have book for this  flight");
              return;
@@ -39,8 +44,16 @@ public class clsDeleteTicket {
             String sure =clsImportantClass.ReadString();
             if (sure.charAt(0)=='y'){
                 
+                System.out.println("we have deleted your ticeket");
+                passenger.SetPassengerCash(passenger.Getpassengercach()+(found.GetPrice()*(67/100)));
+                
+                
+                ClsPassengers.AddNew(passenger);
+                
+                ClsPassengers.Save(ClsPassengers.GetAllPassenger());
+                
                 passenger.DeleteTicket(found.GetNumberOfFlight());
-                passenger.SetPassengerCash(passenger.Getpassengercach()-((found.GetPrice()*33)/100));
+                
             }
             else{
                 System.out.println("we let your booked ticeket"); 

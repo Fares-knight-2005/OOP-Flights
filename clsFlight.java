@@ -264,5 +264,15 @@ public class clsFlight {
     }
 
   
-
+    public boolean IsFlightEmpty ( clsFlight flight){
+ 
+  
+        if (flight.DateToGoBack==""&&flight.DateToTravel==""&&flight.FromCountry==""&&flight.HowMuchTimeInTheSky==""&&flight.NumberOfChars==0&&
+                flight.NumberOfFlight==""&&flight.NumberOfPasengers==0&&flight.StringTimeOfGo==""&&flight.TimeOfArriving==""&&flight.ToCountry==""&&
+                flight.price==0){
+        return true ;
+        }
+       return false ;
+       } 
 }
+
