@@ -9,7 +9,7 @@ public class ClsBookNewTiceket extends clsScreeen {
         clsFlight flight = clsFlight.Find(flightNum);
       
         
-        if (flight.IsFlightEmpty(flight))
+        if (clsFlight.IsFlightEmpty(flight))
         {
             System.out.println("the flight number is wrong pleas try another number ");
              SerchForFlight();

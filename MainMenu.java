@@ -45,7 +45,8 @@ public class MainMenu extends clsScreeen{
 
           case BookNewFlight:
           clsImportantClass.ClearScreen();
-          System.out.println("Screen Will Be Here Nearly \n");
+         // System.out.println("Screen Will Be Here Nearly \n");
+         ClsBookNewTiceket.BookNewTiceket(CurrentPassenger);
           System.out.println("Press Any Key To Go Back To Main Menu...");
           input.nextLine();
           input.nextLine();
@@ -54,7 +55,8 @@ public class MainMenu extends clsScreeen{
 
           case DeleteFlight:
           clsImportantClass.ClearScreen();
-          System.out.println("Screen Will Be Here Nearly \n");
+          //System.out.println("Screen Will Be Here Nearly \n");
+          clsDeleteTicket.DeletTicket(CurrentPassenger);
           System.out.println("Press Any Key To Go Back To Main Menu...");
           input.nextLine();
           input.nextLine();

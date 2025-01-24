@@ -264,7 +264,7 @@ public class clsFlight {
     }
 
   
-    public boolean IsFlightEmpty ( clsFlight flight){
+    public static boolean IsFlightEmpty ( clsFlight flight){
  
   
         if (flight.DateToGoBack==""&&flight.DateToTravel==""&&flight.FromCountry==""&&flight.HowMuchTimeInTheSky==""&&flight.NumberOfChars==0&&
