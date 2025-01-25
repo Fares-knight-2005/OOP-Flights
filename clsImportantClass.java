@@ -77,9 +77,10 @@ public class clsImportantClass {
     try {
         num = input.nextInt();
         break;
-    } catch (NumberFormatException  e) {
+    } catch (Exception  e) {
         System.out.println("Wrong input please Enter Number");
-        ReadIntNumber();
+        input.nextLine();
+        return ReadIntNumber();
     }
       }
 
