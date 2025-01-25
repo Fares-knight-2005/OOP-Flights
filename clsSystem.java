@@ -47,6 +47,7 @@ public class clsSystem extends clsScreeen{
 
         System.out.print("The Airlin System , enter the password : ");
         String Password = a.nextLine();
+        clsImportantClass.ClearScreen();
         if (Password.equals("0000") ) {
             NewScreen("\t        The AirLin System", 55);
 

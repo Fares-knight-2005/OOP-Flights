@@ -77,6 +77,7 @@ public class clsSearchForaFlight {
                    for (clsFlight e : Flights) {
                     clsShowFlghts.printOneFlight(e);                   }
                 
+                    System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
 
                 break;
             case 2:     
@@ -85,6 +86,7 @@ public class clsSearchForaFlight {
 
                    for (clsFlight e : Flightss) {
                     clsShowFlghts.printOneFlight(e);                   }
+                    System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
 
                 break;
             default:
