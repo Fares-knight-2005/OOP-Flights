@@ -3,6 +3,43 @@ import java.util.*;
 
 public class clsSearchForaFlight {
 
+
+    
+    private static ArrayList <clsFlight> SortByPriceDownToUp(ArrayList <clsFlight> AllFlights)
+    {
+       for(int j = 1 ; j < AllFlights.size() ; j++) 
+         for(int i = 0 ; i < AllFlights.size() - j ; i++)
+         {
+             if(AllFlights.get(i).GetPrice() > AllFlights.get(i + 1).GetPrice())
+             {
+                 clsFlight Temp = AllFlights.get(i);
+                 AllFlights.set(i, AllFlights.get(i + 1));
+                 AllFlights.set(i + 1, Temp);
+             }
+         }
+
+         return AllFlights;
+
+    }
+
+    
+    private static ArrayList <clsFlight> SortByPriceUoToDown(ArrayList <clsFlight> AllFlights)
+    {
+       for(int j = 1 ; j < AllFlights.size() ; j++) 
+         for(int i = 0 ; i < AllFlights.size() - j ; i++)
+         {
+             if(AllFlights.get(i).GetPrice() < AllFlights.get(i + 1).GetPrice())
+             {
+                 clsFlight Temp = AllFlights.get(i);
+                 AllFlights.set(i, AllFlights.get(i + 1));
+                 AllFlights.set(i + 1, Temp);
+             }
+         }
+
+         return AllFlights;
+
+    }
+
     public static void SearchForaFlight() {
         System.out.println(" the price from high to low  [1]");
         System.out.println(" the price from low to high  [2]");
@@ -32,32 +69,28 @@ public class clsSearchForaFlight {
 
           return;
         }
-        Comparator<clsFlight> priceComparator;
         switch (x) {
             case 1:
                
-                 priceComparator = new Comparator<clsFlight>() {
-                 @Override public int compare(clsFlight f1, clsFlight f2){
-                      return Double.compare(f2.GetPrice(), f1.GetPrice()); } 
-                    };
-                    Collections.sort(allcountryflights, priceComparator);
-                   for (clsFlight e : allcountryflights) {
+                 ArrayList <clsFlight> Flights = SortByPriceUoToDown(allcountryflights);
+
+                   for (clsFlight e : Flights) {
                     clsShowFlghts.printOneFlight(e);                   }
                 
 
                 break;
             case 2:     
                 
-                 priceComparator = new Comparator<clsFlight>() {
-                 @Override public int compare(clsFlight f1, clsFlight f2)
-                     { return Double.compare(f1.GetPrice(), f2.GetPrice()); } 
-                    }
-                    ; Collections.sort(allcountryflights, priceComparator);
-                   for (clsFlight e : allcountryflights) {
+                 ArrayList <clsFlight> Flightss = SortByPriceDownToUp(allcountryflights);
+
+                   for (clsFlight e : Flightss) {
                     clsShowFlghts.printOneFlight(e);                   }
 
+                break;
             default:
-                System.out.println("enter Between [1] --> [2]");
+            clsImportantClass.ClearScreen();
+                SearchForaFlight();
+               
         }
 
     }

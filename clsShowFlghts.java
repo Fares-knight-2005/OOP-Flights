@@ -11,6 +11,72 @@ public class clsShowFlghts extends clsScreeen{
 
 
 
+    private static ArrayList <clsFlight> SortByDate(ArrayList <clsFlight> AllFlights)
+    {
+        for(int j = 1 ; j < AllFlights.size() ; j++)
+        {
+            for(int i = 0 ; i < AllFlights.size() - 1 ; i++)
+            {
+                boolean Done = false;
+
+                String Date1 = AllFlights.get(i).GetDateToTravel();
+                String Date2 = AllFlights.get(i + 1).GetDateToTravel();
+                String[] ArrDate1 = Date1.split("/");
+                String[] ArrDate2 = Date2.split("/");
+
+                if(Integer.parseInt(ArrDate1[0]) > Integer.parseInt(ArrDate2[0]))
+                {
+                 clsFlight Temp = AllFlights.get(i);
+                 AllFlights.set(i, AllFlights.get(i + 1));
+                 AllFlights.set(i + 1, Temp);
+                 Done = true;
+                }
+
+                else if(Integer.parseInt(ArrDate1[1]) > Integer.parseInt(ArrDate2[1]))
+                {
+                 clsFlight Temp = AllFlights.get(i);
+                 AllFlights.set(i, AllFlights.get(i + 1));
+                 AllFlights.set(i + 1, Temp);
+                 Done = true;
+                }
+
+                else if(Integer.parseInt(ArrDate1[2]) > Integer.parseInt(ArrDate2[2]))
+                {
+                 clsFlight Temp = AllFlights.get(i);
+                 AllFlights.set(i, AllFlights.get(i + 1));
+                 AllFlights.set(i + 1, Temp);
+                 Done = true;
+                }
+
+                Date1 = AllFlights.get(i).GetStringTimeOfGo();
+                Date2 = AllFlights.get(i + 1).GetStringTimeOfGo();
+
+                String[] Arr1 = Date1.split(":");
+                String[] Arr2 = Date2.split(":");
+
+                if(!Done)
+                if(Integer.parseInt(Arr1[0]) > Integer.parseInt(Arr2[0]))
+                {
+                 clsFlight Temp = AllFlights.get(i);
+                 AllFlights.set(i, AllFlights.get(i + 1));
+                 AllFlights.set(i + 1, Temp);
+                }
+
+                else if(Integer.parseInt(Arr1[1]) > Integer.parseInt(Arr2[1]))
+                {
+                 clsFlight Temp = AllFlights.get(i);
+                 AllFlights.set(i, AllFlights.get(i + 1));
+                 AllFlights.set(i + 1, Temp);
+                }
+
+               
+            }
+        } 
+        
+        return AllFlights;
+    }
+
+
     public static void ShowFlightScreen()
     {
         
@@ -35,10 +101,14 @@ public class clsShowFlghts extends clsScreeen{
           return;
         }
 
+        AllFlights = SortByDate(AllFlights);
+        
         for(clsFlight Flight : AllFlights)
         {
             printOneFlight(Flight);
         }
+
+
 
 
 
