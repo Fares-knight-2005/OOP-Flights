@@ -69,7 +69,7 @@ public class MainMenu extends clsScreeen{
           break;
 
           default:
-          MainMenu(CurrentPassenger);
+          break;
 
         }
     }
@@ -78,6 +78,7 @@ public class MainMenu extends clsScreeen{
     public static void MainMenu(ClsPassengers CurrentPassenger)
     {
 
+      
         clsImportantClass.ClearScreen();
 
 
@@ -98,6 +99,15 @@ public class MainMenu extends clsScreeen{
         
             System.out.print("Enter What Do You Want To Do [1 --> 6] : ");
             int ToDo = input.nextInt();
+
+
+
+            while(ToDo > 6 || ToDo < 1)
+            {
+                System.out.println("Enter Number Betwin 1 -> 6 :");
+                ToDo = clsImportantClass.ReadIntNumber();
+            }
+
 
             GenrateMainMenu(enWhatToDO.values()[ToDo - 1] , CurrentPassenger);
         

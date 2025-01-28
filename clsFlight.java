@@ -257,7 +257,7 @@ public class clsFlight {
         ArrayList <clsFlight> arrayListWithcountry =new ArrayList();
       
         for (clsFlight e : GetAllFlights() ) {
-            if(e.ToCountry.equals(Countryto)){
+            if(e.ToCountry.equalsIgnoreCase(Countryto)){
             arrayListWithcountry.add(e);}
         }
         return arrayListWithcountry;

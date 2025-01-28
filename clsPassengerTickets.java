@@ -52,7 +52,7 @@ public class clsPassengerTickets extends clsScreeen {
 
 
     public static void printTickets (ClsPassengers Passenger){
-        NewScreen("\t       Your Tickets", 55);
+        NewScreen("\t             Your Tickets", 55);
         
         ArrayList <ClsTickets> PassengerTickets = Passenger.GetTickets();
         

@@ -48,7 +48,7 @@ public class clsCreatNewAccount extends  clsScreeen {
 
     public static void AddNewAccount() {
 
-        NewScreen("\t     Add New Account ", 55);
+        NewScreen("\t          Add New Account ", 55);
 
         ClsPassengers obj = AddNew();
 

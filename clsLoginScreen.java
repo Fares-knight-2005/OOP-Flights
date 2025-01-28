@@ -9,7 +9,7 @@ public class clsLoginScreen extends clsScreeen{
     {
         clsImportantClass.ClearScreen();
 
-        NewScreen("\t         Login Screen" , 55);
+        NewScreen("\t            Login Screen" , 55);
 
         System.out.println("Enter Your User Name : ");
 
@@ -44,7 +44,7 @@ public class clsLoginScreen extends clsScreeen{
 
             ClsPassengers CurrentPassenger = log();
 
-            if(CurrentPassenger.Getpassengercach() == 0)
+            if(ClsPassengers.isEmpty(CurrentPassenger))
             {
                System.out.println("\n");
                 System.out.println("Wrong User Name Or Password :(");
@@ -95,7 +95,7 @@ public class clsLoginScreen extends clsScreeen{
         clsImportantClass.ClearScreen();
 
 
-        NewScreen("\t        The Login Screen", 55);
+        NewScreen("\t          The Login Screen", 55);
 
         System.out.println( "===========================================");
         System.out.println( "                   Login                   ");
@@ -109,6 +109,13 @@ public class clsLoginScreen extends clsScreeen{
         
         System.out.print("Enter What Do You Want To Do [1 --> 3] : ");
             int ToDo = clsImportantClass.ReadIntNumber();
+
+            
+            while(ToDo > 3 || ToDo < 1)
+            {
+                System.out.println("Enter Number Betwin 1 -> 3 :");
+                ToDo = clsImportantClass.ReadIntNumber();
+            }
 
             GenrateLogin(enWhatToDO.values()[ToDo - 1]);
       }    

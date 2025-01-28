@@ -14,6 +14,7 @@ public class ClsTickets {
     
      LocalTime currenttime ;
     
+     boolean MarkToDelete;
      
     
     public ClsTickets(clsFlight flight ,String username)
@@ -21,6 +22,7 @@ public class ClsTickets {
       this.Flight =flight ;
       this.username=username;
      currenttime=LocalTime.now();
+     MarkToDelete = false;
      
     }
     
@@ -129,7 +131,7 @@ public class ClsTickets {
         for(ClsTickets Ticket : AllTickets)
         {
              if(Ticket.username.equals(UserName))
-                if(Ticket.Flight.equals(Flight))
+                if(Ticket.Flight.GetNumberOfFlight().equals(Flight.GetNumberOfFlight()))
                    return Ticket;
         }  
 
@@ -148,9 +150,13 @@ public class ClsTickets {
             String Line;
             for(ClsTickets Ticket : AllTickets)
             {
+                if(!Ticket.MarkToDelete){
                 Line = ConvertToline(Ticket);
-                Writer.write(Line);
+                Writer.write(Line + "\n");
+                }
             }
+
+            Writer.close();
     
             }
             catch(Exception e)
@@ -167,10 +173,29 @@ public class ClsTickets {
 
         ArrayList <ClsTickets> AllTickets = GetAllTickets();
         
-        AllTickets.remove(this);
+        for(int i = 0 ; i < AllTickets.size() ; i++)
+        {
+
+            if(this.Equal(AllTickets.get(i)))
+            {
+                AllTickets.get(i).MarkToDelete = true;
+                break;
+            }
+        }
+
 
         Save(AllTickets);
         
+    }
+
+    public boolean Equal(ClsTickets Ticket)
+    {
+        if(Ticket.Flight.GetNumberOfFlight().equals(this.Flight.GetNumberOfFlight()) && Ticket.currenttime.equals(this.currenttime))
+        {
+            return true;
+        }
+
+        return false;
     }
 
 }

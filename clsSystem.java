@@ -49,7 +49,7 @@ public class clsSystem extends clsScreeen{
         String Password = a.nextLine();
         clsImportantClass.ClearScreen();
         if (Password.equals("0000") ) {
-            NewScreen("\t        The AirLin System", 55);
+            NewScreen("\t          The AirLin System", 55);
 
             System.out.println("===========================================");
             System.out.println("              AirLine System               ");
@@ -65,7 +65,15 @@ public class clsSystem extends clsScreeen{
             System.out.print("Enter What Do You Want To Do [1 --> 4] : ");
             int ToDo = clsImportantClass.ReadIntNumber();
 
-            GenrateSystem(enWhatToDO.values()[ToDo - 1]);
+           
+
+            while(ToDo > 4 || ToDo < 1)
+            {
+                System.out.println("Enter Number Betwin 1 -> 4 :");
+                ToDo = clsImportantClass.ReadIntNumber();
+            }
+
+             GenrateSystem(enWhatToDO.values()[ToDo - 1]);
         } else {
             System.out.println("The password is incorrect , please Try again .");
 

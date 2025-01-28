@@ -47,16 +47,23 @@ public class clsSearchForaFlight {
         System.out.println("Enter Number [1 --> 2] : ");
 
         int x = clsImportantClass.ReadIntNumber();
+        
+        while(x > 2 || x < 1)
+        {
+            System.out.println("Enter Number Betwin 1 -> 2 :");
+            x = clsImportantClass.ReadIntNumber();
+        }
+
         clsImportantClass.ClearScreen();
         System.out.println("Enter The country you want to go ?");
         String countryto = clsImportantClass.ReadString();
         clsImportantClass.ClearScreen();
 
-        System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
-        System.out.println("|                                                              Flights Informations                                                                        |");
-        System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
-        System.out.println("| Flight Num | From Country | To Country | Travel Date  |  Go Back Date  | Chears Num | Passegers Num | Going Time | Arraiving Time | Stay in The Sky hours|");
-        System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+        System.out.println("|_________________________________________________________________________________________________________________________________________________________________|");
+        System.out.println("|                                                                   Flights Informations                                                                          |");
+        System.out.println("|_________________________________________________________________________________________________________________________________________________________________|");
+        System.out.println("| Flight Num | From Country | To Country | Travel Date  |  Go Back Date  | Chears Num | Passegers Num | Going Time | Arraiving Time | Stay in The Sky hours| Price|");
+        System.out.println("|_________________________________________________________________________________________________________________________________________________________________|");
 
        
         ArrayList<Integer> allprices = new ArrayList<>();
@@ -64,8 +71,8 @@ public class clsSearchForaFlight {
          if(allcountryflights.isEmpty())
         {
             
-          System.out.println("                                                                  No Flights Exest");
-          System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+          System.out.println("                                                                     No Flights Exest");
+          System.out.println("|_________________________________________________________________________________________________________________________________________________________________|");
 
           return;
         }
@@ -77,8 +84,7 @@ public class clsSearchForaFlight {
                    for (clsFlight e : Flights) {
                     clsShowFlghts.printOneFlight(e);                   }
                 
-                    System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
-
+                    System.out.println("|_________________________________________________________________________________________________________________________________________________________________|");
                 break;
             case 2:     
                 
@@ -86,7 +92,7 @@ public class clsSearchForaFlight {
 
                    for (clsFlight e : Flightss) {
                     clsShowFlghts.printOneFlight(e);                   }
-                    System.out.println("|__________________________________________________________________________________________________________________________________________________________|");
+                    System.out.println("|_________________________________________________________________________________________________________________________________________________________________|");
 
                 break;
             default:
